@@ -103,6 +103,40 @@ input[type=text] {
   align-items: center;
 }
 
-#search {
+#searchInput{
   margin-left: 10em;
+  border: solid 1px #cccccc;
+}
+
+.pagination {
+  display: flex;
+}
+
+.pagination li {
+  margin-right: 7px;
+  border: solid 1px #cccccc;
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.activePage {
+  background-color: #019875;
+  color: #ffffff;
+}
+
+#searchButton {
+  margin-left: 10px;
+}
+
+table {
+  margin-bottom: 1em;
+}
+
+#no_results {
+  background: #f57150;
+  color: #ffffff;
+  display: table;
+  border-radius: 5px;
+  padding: 8px;
 }

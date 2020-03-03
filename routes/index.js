@@ -9,7 +9,11 @@ router.get('/', function(req, res, next) {
 
 router.get('/books', async (req,res) => {
   const books = await Book.findAll()
-  res.render('books', {title: 'Books', books})
+  res.render('books', {
+    title: 'Books',
+    books: books,
+    links: Math.ceil(books.length / 10)
+  })
 })
 
 router.get('/books/new', (req,res)=> {

@@ -2,10 +2,16 @@ extends layout
 
 block content
     .header
-        h1= title
-        input#search(type="text" name="search" placeholder="Search for a book")
+        h1=title
+        form#searchForm
+            input#searchInput(type="text" placeholder="Search for a book")
+            input(type='submit' value="Search" id='searchButton')
     p
         a.submit_button(href="/books/new") Create New Book
+    ul.pagination
+        - var n=1;
+        while n <= links
+            li.pageLink=n++
     table
         thead
             tr
@@ -15,8 +21,9 @@ block content
                 th Year 
         tbody
             each book in books
-                tr
+                tr.book_row
                     th=book.title
                     th=book.author
                     th=book.genre
                     th=book.year
+    .resultsIndicator
