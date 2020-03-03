@@ -1,6 +1,7 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  h1 Server Error
+  p There has been an unexpected isue with the server. Try again
+  p
+   a.button(href="/") Home
