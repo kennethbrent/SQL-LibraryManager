@@ -76,7 +76,7 @@ router.use(function (err, req, res, next) {
 })
 /*SHOW 404 PAGE */
 router.use(function (req, res, next) {
-  res.render('404')
+  res.render('page_not_found')
 })
 
 
