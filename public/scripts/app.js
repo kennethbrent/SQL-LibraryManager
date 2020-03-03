@@ -28,13 +28,17 @@ const booksToShow = (page) => {
         books[i].style.display = 'table-row';
     }
 }
+
+
 //////////////////////////////////////////////////////////////////////////
+///////////////////////////Handle search on submit/////////////////////////
+const booksArray = [...document.querySelectorAll('.book_row')]
+
 $('#searchForm').on('submit',  (e)=>{
     e.preventDefault();
     const query = $('#searchInput').val().toLowerCase();
     $('.book_row').hide();
     $('.pagination').hide();
-    const booksArray = [...document.querySelectorAll('.book_row')]
     let matches = 0;
     booksArray.forEach((book)=>{
         let booktext = book.textContent.toLowerCase();
@@ -57,7 +61,14 @@ $('#searchForm').on('submit',  (e)=>{
         <a href='/' class="button">See all books</a>
     `)
     }
-    // $('body').append(`<a href='/' class="button">See all books</a>`)
-
 })
 
+
+////////////////////////////////////////////////////////////////////////
+/////////////////////redirect to book detail page on table row click
+booksArray.forEach((book)=>{
+    book.addEventListener('click', ()=>{
+        let bookID = $(book).children('#book_id').text();
+        window.location.href = `/books/${bookID}`
+    })
+})

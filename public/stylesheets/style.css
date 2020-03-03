@@ -140,3 +140,11 @@ table {
   border-radius: 5px;
   padding: 8px;
 }
+
+#book_id {
+  display: none;
+}
+
+.book_row:hover {
+  cursor: pointer;
+}

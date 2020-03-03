@@ -7,6 +7,8 @@ router.get('/', function(req, res, next) {
   res.redirect('/books')
 });
 
+
+/*GET ALL BOOKS */
 router.get('/books', async (req,res) => {
   const books = await Book.findAll()
   res.render('books', {
@@ -16,6 +18,7 @@ router.get('/books', async (req,res) => {
   })
 })
 
+/*NEW BOOK ROUTES *//
 router.get('/books/new', (req,res)=> {
   res.render('new-book')
 })
@@ -29,6 +32,8 @@ router.post('/books/new', async (req, res) => {
     res.render('new-book', {error})
   }
 })
+
+/*ROUTES TO READ AND UPDATE BOOK DETAILS */
 
 router.get('/books/:id', async (req,res)=>{
   try{
@@ -51,7 +56,7 @@ router.post('/books/:id', async (req,res)=>{
   }
 })
 
-
+/* ROUTE TO DELETE BOOK */
 router.post('/books/:id/delete', async (req,res)=>{
   try{
     const book = await Book.findByPk(req.params.id);
@@ -63,11 +68,13 @@ router.post('/books/:id/delete', async (req,res)=>{
   }
 })
 
+
+/*CATCH ERRORS AND RENDER ERROR PAGE */
 router.use(function (err, req, res, next) {
   console.error(err.stack)
   res.render('error')
 })
-
+/*SHOW 404 PAGE */
 router.use(function (req, res, next) {
   res.render('404')
 })
